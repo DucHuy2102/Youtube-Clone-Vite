@@ -2,12 +2,19 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { FaMicrophone, FaRegBell } from 'react-icons/fa';
 import { CiSearch } from 'react-icons/ci';
 import { RiVideoUploadLine } from 'react-icons/ri';
+import { useDispatch } from 'react-redux';
+import { toggleSidebar } from '../redux/slides/appSlide';
 
 const Navbar = () => {
+    const dispatch = useDispatch();
+    const toggleHandler = () => {
+        dispatch(toggleSidebar());
+    };
+
     return (
-        <div className='fixed top-0 left-0 w-full bg-white px-[16px] h-[56px] flex items-center justify-between z-50'>
+        <div className='fixed top-0 left-0 z-50 w-full bg-white px-[16px] h-[56px] flex items-center justify-between'>
             <div className='h-full w-[170px] flex items-center px-2'>
-                <RxHamburgerMenu size={22} className='cursor-pointer' />
+                <RxHamburgerMenu size={22} className='cursor-pointer' onClick={toggleHandler} />
                 <div className='pl-6 flex items-center gap-1'>
                     <img
                         width={90}
