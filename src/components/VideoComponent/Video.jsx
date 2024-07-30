@@ -41,22 +41,17 @@ const timeAgo = (dateString) => {
 
 const Video = ({ data }) => {
     const isOpenSidebar = useSelector((state) => state.app.open);
-    // console.log(data);
 
     // fetch channel data from API
     const [channel, setChannel] = useState([]);
     const fetchChannel = async () => {
-        try {
-            const response = await fetch(
-                `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${
-                    data?.snippet?.channelId
-                }&key=${import.meta.env.VITE_API_KEY}`
-            );
-            const dataChannel = await response.json();
-            setChannel(dataChannel.items[0]);
-        } catch (error) {
-            console.log(error);
-        }
+        const response = await fetch(
+            `https://youtube.googleapis.com/youtube/v3/channels?part=snippet%2CcontentDetails%2Cstatistics&id=${
+                data?.snippet?.channelId
+            }&key=${import.meta.env.VITE_API_KEY}`
+        );
+        const dataChannel = await response.json();
+        setChannel(dataChannel.items[0]);
     };
 
     useEffect(() => {

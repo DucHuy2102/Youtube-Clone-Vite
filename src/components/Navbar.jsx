@@ -4,6 +4,7 @@ import { CiSearch } from 'react-icons/ci';
 import { RiVideoUploadLine } from 'react-icons/ri';
 import { useDispatch } from 'react-redux';
 import { toggleSidebar } from '../redux/slides/appSlide';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const dispatch = useDispatch();
@@ -15,13 +16,13 @@ const Navbar = () => {
         <div className='fixed top-0 left-0 z-50 w-full bg-white px-[16px] h-[56px] flex items-center justify-between'>
             <div className='h-full w-[170px] flex items-center px-2'>
                 <RxHamburgerMenu size={22} className='cursor-pointer' onClick={toggleHandler} />
-                <div className='pl-6 flex items-center gap-1'>
+                <Link to='/' className='pl-6 flex items-center gap-1 cursor-pointer'>
                     <img
                         width={90}
                         src='https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg'
                         alt='Logo_Youtube'
                     />
-                </div>
+                </Link>
             </div>
 
             {/* input search here */}

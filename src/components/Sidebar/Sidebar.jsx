@@ -103,7 +103,7 @@ const Sidebar = () => {
         <div
             className={`${
                 isOpenSidebar ? 'w-[240px]' : 'w-[70px]'
-            } fixed top-0 left-0 z-40 pt-[56px] flex flex-col h-screen bg-white`}
+            } fixed top-0 left-0 z-40 flex flex-col pt-[56px] h-screen bg-white`}
         >
             {isOpenSidebar ? (
                 <div className='customOverflow'>
