@@ -98,12 +98,16 @@ const policy = [
 
 const Sidebar = () => {
     const isOpenSidebar = useSelector((state) => state.app.open);
+    const sidebarWatchVideo = useSelector((state) => state.app.isOnWatchingVideo);
+    console.log('sidebarWatchVideo', sidebarWatchVideo);
 
     return (
         <div
             className={`${
                 isOpenSidebar ? 'w-[240px]' : 'w-[70px]'
-            } fixed top-0 left-0 z-40 flex flex-col pt-[56px] h-screen bg-white`}
+            } fixed top-0 left-0 z-40 flex flex-col pt-[56px] h-screen bg-white ${
+                sidebarWatchVideo ? 'hidden' : 'block'
+            }`}
         >
             {isOpenSidebar ? (
                 <div className='customOverflow'>

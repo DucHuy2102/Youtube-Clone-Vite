@@ -26,9 +26,8 @@ const Content = () => {
         fetchVideo();
     }, []);
 
-    const handleWatchVideo = () => {
-        dispatch(toggleSidebar());
-        navigate('/watch');
+    const handleWatchVideo = (idVideo) => {
+        navigate(`/watch?v=${idVideo}`);
     };
 
     return (
@@ -42,11 +41,13 @@ const Content = () => {
                     isOpenSidebar ? 'grid-cols-3 gap-x-3 gap-y-2' : 'grid-cols-4 gap-x-2 gap-y-3'
                 }`}
             >
-                {video.map((item) => (
-                    <div onClick={handleWatchVideo} key={item.id}>
-                        <Video data={item} />
-                    </div>
-                ))}
+                {video?.map((item) => {
+                    return (
+                        <div onClick={() => handleWatchVideo(item.id)} key={item.id}>
+                            <Video data={item} />
+                        </div>
+                    );
+                })}
             </div>
         </div>
     );
